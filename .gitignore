@@ -1,0 +1,11 @@
+*.class
+*.war
+*.ear
+build
+target
+*.iml
+.DS_STORE
+.gradle
+.idea
+gradlew
+.bat
