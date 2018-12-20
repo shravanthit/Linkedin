@@ -1,18 +1,15 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.DriverFactory;
-
-import static utils.DriverFactory.driver;
+import utils.webdriverutils.WebdriverUtilities;
 
 public class LinkedInPage {
     WebDriver driver = DriverFactory.driver;
     DriverFactory dFactory = new DriverFactory();
     DriverFactory visible = new DriverFactory();
-
     @FindBy(id = "login-email")
     WebElement email;
 
@@ -22,20 +19,19 @@ public class LinkedInPage {
     @FindBy(id = "login-submit")
     WebElement signIn;
 
-    @FindBy(id="feed-tab-icon")
+    @FindBy(id = "feed-tab-icon")
     WebElement homeIcon;
-
 
 
     public void launchLinkedinPage() {
         driver.get( "https://www.linkedin.com/" );
-        dFactory.waitingforelement( email,driver );
+        WebdriverUtilities.waitForElementToBeVisible(email);
 
     }
 
     public void enterDetails(String Email, String Pwd) {
         email.click();
-        email.sendKeys( Email );
+        email.sendKeys(Email);
         pwd.sendKeys( Pwd );
         signIn.click();
     }
@@ -45,7 +41,5 @@ public class LinkedInPage {
         return homeIcon.isDisplayed();
     }
 
-    //public class login(String email) {
-    //}
 }
 
