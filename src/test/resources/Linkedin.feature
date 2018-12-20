@@ -7,7 +7,7 @@ Feature: Linkedin Home Page
       Then   Login Should be successful
       Examples:
       |Email           | Password |
-      |sraavanthi.thuma@gmail.com| renushrav|
+      |test.user@gmail.com| abc123|
 
 
 
