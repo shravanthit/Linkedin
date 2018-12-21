@@ -77,7 +77,7 @@ public class LinkedInPage {
 
     public void myProfilepage() throws InterruptedException {
         profileIcon.click();
-        Thread.sleep( 6 );
+       WebdriverUtilities.waitForElementToBeClickable( viewProfile );
         viewProfile.click();
 
     }
@@ -112,7 +112,6 @@ public class LinkedInPage {
     }
 
     public boolean verifyresults() {
-        // System.out.println( jobList.size() );
         return jobList.size() > 0;
     }
 

@@ -26,7 +26,6 @@ public class LinkedinSteps {
 
     @Then("^Login Should be successful$")
     public void loginSuccessful() {
-        linkedIn.verifyRegistered();
         Assert.assertTrue( "Registration not successful", linkedIn.verifyRegistered() );
 
     }
@@ -74,7 +73,6 @@ public class LinkedinSteps {
 
     @Then("I should be able to see list of jobs")
     public void listjobs() {
-        linkedIn.verifyresults();
         Assert.assertTrue( "is not true", linkedIn.verifyresults() );
     }
 
