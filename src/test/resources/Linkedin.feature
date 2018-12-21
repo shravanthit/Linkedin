@@ -6,6 +6,7 @@ Feature: Linkedin Home Page
     When   I Enter <Email> and <Password>
     Then   Login Should be successful
     Examples:
+<<<<<<< HEAD
       | Email                      | Password  |
       | sraavanthi.thuma@gmail.com | renushrav |
 
