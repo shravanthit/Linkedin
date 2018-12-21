@@ -13,4 +13,8 @@ public interface WebdriverUtilities {
     static void waitForElementToBeVisible(WebElement element){
         wait.until( ExpectedConditions.visibilityOf( element ) );
     }
+
+    static void waitForElementToBeClickable(WebElement element){
+        wait.until( ExpectedConditions.elementToBeClickable( element ) );
+    }
 }

@@ -25,9 +25,56 @@ public class LinkedinSteps {
     }
 
     @Then("^Login Should be successful$")
-    public void registration_Should_be_successful() {
+    public void loginSuccessful() {
         linkedIn.verifyRegistered();
         Assert.assertTrue( "Registration not successful", linkedIn.verifyRegistered() );
 
     }
-}
+
+    @Given("^I am logged in with (.*) and (.*)$")
+    public void loggedIn(String email, String pwd) {
+        on_Linkedin_page();
+        i_Enter_details(email,pwd );
+        loginSuccessful();
+
+    }
+
+
+    @When("^I navigate to my profile page$")
+    public void myProfile() throws InterruptedException {
+        linkedIn.myProfilepage();
+
+    }
+
+    @Then("^I should see my Dashboard")
+    public void dashboard(){
+        linkedIn.verifyOnDashboardPage();
+        Assert.assertTrue( "not on dashboard page",linkedIn.verifyOnDashboardPage());
+
+    }
+
+    @When("I click on signout")
+    public void click_signOut() throws InterruptedException {
+     myProfile();
+     dashboard();
+     linkedIn.signOut();
+
+    }
+    @Then("I should be succesfully logged out")
+        public void verifySignout(){
+
+    }
+    @When("I click on job icon and enter (.*) and (.*)" )
+    public void searchJobs(String jobName, String jobLoc){
+        linkedIn.SearchJob(jobName,jobLoc );
+
+        }
+
+    @Then("I should be able to see list of jobs")
+    public void listjobs(){
+        linkedIn.verifyresults();
+        Assert.assertTrue( "is not true" ,linkedIn.verifyresults());
+        }
+
+    }
+
