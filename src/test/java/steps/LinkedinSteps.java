@@ -34,7 +34,7 @@ public class LinkedinSteps {
     @Given("^I am logged in with (.*) and (.*)$")
     public void loggedIn(String email, String pwd) {
         on_Linkedin_page();
-        i_Enter_details(email,pwd );
+        i_Enter_details( email, pwd );
         loginSuccessful();
 
     }
@@ -47,34 +47,36 @@ public class LinkedinSteps {
     }
 
     @Then("^I should see my Dashboard")
-    public void dashboard(){
+    public void dashboard() {
         linkedIn.verifyOnDashboardPage();
-        Assert.assertTrue( "not on dashboard page",linkedIn.verifyOnDashboardPage());
+        Assert.assertTrue( "not on dashboard page", linkedIn.verifyOnDashboardPage() );
 
     }
 
     @When("I click on signout")
     public void click_signOut() throws InterruptedException {
-     myProfile();
-     dashboard();
-     linkedIn.signOut();
+        myProfile();
+        dashboard();
+        linkedIn.signOut();
 
     }
+
     @Then("I should be succesfully logged out")
-        public void verifySignout(){
+    public void verifySignout() {
 
     }
-    @When("I click on job icon and enter (.*) and (.*)" )
-    public void searchJobs(String jobName, String jobLoc){
-        linkedIn.SearchJob(jobName,jobLoc );
 
-        }
+    @When("I click on job icon and enter (.*) and (.*)")
+    public void searchJobs(String jobName, String jobLoc) {
+        linkedIn.SearchJob( jobName, jobLoc );
+
+    }
 
     @Then("I should be able to see list of jobs")
-    public void listjobs(){
+    public void listjobs() {
         linkedIn.verifyresults();
-        Assert.assertTrue( "is not true" ,linkedIn.verifyresults());
-        }
-
+        Assert.assertTrue( "is not true", linkedIn.verifyresults() );
     }
+
+}
 

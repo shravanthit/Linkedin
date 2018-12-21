@@ -24,16 +24,16 @@ public class LinkedInPage {
     @FindBy(id = "feed-tab-icon")
     WebElement homeIcon;
 
-    @FindBy(id="profile-nav-item")
+    @FindBy(id = "profile-nav-item")
     WebElement profileIcon;
 
-    @FindBy(css =".nav-settings__linkcard.nav-settings__block")
+    @FindBy(css = ".nav-settings__linkcard.nav-settings__block")
     WebElement viewProfile;
 
     @FindBy(className = "pv-dashboard-section__title")
     WebElement dashboard;
 
-    @FindBy(xpath =("//a[@data-control-name='nav.settings_signout']"))
+    @FindBy(xpath = ("//a[@data-control-name='nav.settings_signout']"))
     WebElement signOut;
 
     @FindBy(id = "jobs-tab-icon")
@@ -52,20 +52,20 @@ public class LinkedInPage {
     WebElement submit;
 
     @FindBys(@FindBy(xpath = ("//ul[@class='jobs-search-results__list artdeco-list artdeco-list--offset-4']/li")))
-    private List<WebElement> jobList;
+    private List <WebElement> jobList;
 
-    @FindBy(xpath =("//h3[contains(text(), 'Experience Level')]"))
+    @FindBy(xpath = ("//h3[contains(text(), 'Experience Level')]"))
     WebElement experienceLevelTab;
 
     public void launchLinkedinPage() {
         driver.get( "https://www.linkedin.com/" );
         driver.manage().window().maximize();
-        WebdriverUtilities.waitForElementToBeVisible(email);
+        WebdriverUtilities.waitForElementToBeVisible( email );
     }
 
     public void enterDetails(String Email, String Pwd) {
         email.click();
-        email.sendKeys(Email);
+        email.sendKeys( Email );
         pwd.sendKeys( Pwd );
         signIn.click();
     }
@@ -82,37 +82,38 @@ public class LinkedInPage {
 
     }
 
-    public boolean verifyOnDashboardPage(){
+    public boolean verifyOnDashboardPage() {
         WebdriverUtilities.waitForElementToBeVisible( dashboard );
         return dashboard.isDisplayed();
     }
 
-    public void signOut(){
+    public void signOut() {
         profileIcon.click();
         WebdriverUtilities.waitForElementToBeClickable( signOut );
         signOut.click();
 
     }
-    public boolean verifySignout(){
+
+    public boolean verifySignout() {
         WebdriverUtilities.waitForElementToBeVisible( signOut );
         return signOut.isDisplayed();
 
     }
 
-    public void SearchJob(String jobName,String jobLoc){
+    public void SearchJob(String jobName, String jobLoc) {
         WebdriverUtilities.waitForElementToBeVisible( jobIcon );
         jobIcon.click();
-        jobRole.sendKeys(jobName);
-        jobLocation.sendKeys(jobLoc );
-        WebdriverUtilities.waitForElementToBeClickable(jobSearch );
+        jobRole.sendKeys( jobName );
+        jobLocation.sendKeys( jobLoc );
+        WebdriverUtilities.waitForElementToBeClickable( jobSearch );
         jobSearch.click();
         WebdriverUtilities.waitForElementToBeVisible( experienceLevelTab );
 
     }
 
     public boolean verifyresults() {
-       // System.out.println( jobList.size() );
-        return jobList.size() > 0 ;
+        // System.out.println( jobList.size() );
+        return jobList.size() > 0;
     }
 
 }

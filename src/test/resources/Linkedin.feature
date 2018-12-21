@@ -27,14 +27,14 @@ Feature: Linkedin Home Page
       | Email                      | Password  |
       | sraavanthi.thuma@gmail.com | renushrav |
 
-   @jobSearch
-   Scenario Outline: Signout
-     Given I am logged in with <Email> and <Password>
-     When  I click on job icon and enter <jobtype> and <joblocation>
-     Then  I should be able to see list of jobs
-     Examples:
-       | Email                      | Password  |    jobtype      | joblocation   |
-       | sraavanthi.thuma@gmail.com | renushrav | Quality Analyst |  United Kingdom |
+  @jobSearch
+  Scenario Outline: Signout
+    Given I am logged in with <Email> and <Password>
+    When  I click on job icon and enter <jobtype> and <joblocation>
+    Then  I should be able to see list of jobs
+    Examples:
+      | Email                      | Password  | jobtype         | joblocation    |
+      | sraavanthi.thuma@gmail.com | renushrav | Quality Analyst | United Kingdom |
 
 
 
