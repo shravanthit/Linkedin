@@ -36,6 +36,29 @@ Feature: Linkedin Home Page
       | Email                      | Password  | jobtype         | joblocation    |
       | sraavanthi.thuma@gmail.com | renushrav | Quality Analyst | United Kingdom |
 
+  @RandomConnectionReq
+  Scenario Outline:
+    Given I am logged in with <Email> and <Password>
+    When  I am on connection page and sent connection req to random person
+    Then  I should be able to see the message that connection req has been sent
+    Examples:
+      | Email                      | Password  |
+      | sraavanthi.thuma@gmail.com | renushrav |
+
+
+  @CheckPersonConnections
+  Scenario Outline:
+   Given I am logged in with <Email> and <Password>
+   When  I am on homepage and searched persons profile and connections
+   Then  I should be able to see number of connections
+    Examples:
+      | Email                      | Password  |
+      | sraavanthi.thuma@gmail.com | renushrav |
+
+  @asosSearch
+
+
+
 
 
 

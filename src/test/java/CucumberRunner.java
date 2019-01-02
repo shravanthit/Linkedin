@@ -3,7 +3,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         features = {"src/test/resources"},
-        tags = {},
+        tags = "@RandomConnectionReq",
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

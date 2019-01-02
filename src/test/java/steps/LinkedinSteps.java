@@ -76,5 +76,27 @@ public class LinkedinSteps {
         Assert.assertTrue( "is not true", linkedIn.verifyresults() );
     }
 
+    @When("I am on connection page and sent connection req to random person")
+    public void connectionReq() throws InterruptedException {
+        linkedIn.sendConnectionReq();
+    }
+
+    @Then("I should be able to see the message that connection req has been sent")
+    public void reqSentSuccesfull() {
+        Assert.assertTrue( "test failed", linkedIn.verifyConnectionSent() );
+
+    }
+
+    @When("I am on homepage and searched persons profile and connections")
+    public void searchPerson() throws InterruptedException {
+        linkedIn.searchPersonProfile();
+
+    }
+
+    @Then("I should be able to see number of connections")
+    public void personConnections(){
+        Assert.assertTrue( "connections test failed" ,linkedIn.verifyConnectionsChecked());
+
+    }
 }
 
