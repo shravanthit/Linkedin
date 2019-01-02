@@ -98,5 +98,21 @@ public class LinkedinSteps {
         Assert.assertTrue( "connections test failed" ,linkedIn.verifyConnectionsChecked());
 
     }
+
+    @Given("I am on asos home page")
+    public void launchAsos(){
+        linkedIn.launchAsosPage();
+    }
+
+    @When( "I search product and select randomly and add to basket" )
+    public void searchProduct() throws InterruptedException {
+        linkedIn.searchProduct();
+
+    }
+
+    @Then("I should be able to see the product in the basket")
+    public void search(){
+
+    }
 }
 

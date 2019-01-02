@@ -48,15 +48,18 @@ Feature: Linkedin Home Page
 
   @CheckPersonConnections
   Scenario Outline:
-   Given I am logged in with <Email> and <Password>
-   When  I am on homepage and searched persons profile and connections
-   Then  I should be able to see number of connections
+    Given I am logged in with <Email> and <Password>
+    When  I am on homepage and searched persons profile and connections
+    Then  I should be able to see number of connections
     Examples:
       | Email                      | Password  |
       | sraavanthi.thuma@gmail.com | renushrav |
 
   @asosSearch
-
+  Scenario: search product
+    Given I am on asos home page
+    When  I search product and select randomly and add to basket
+    Then  I should be able to see the product in the basket
 
 
 

@@ -94,17 +94,46 @@ public class LinkedInPage {
     @FindBy(xpath = ("//span[contains(text(), 'Mahesh Thuma')]"))
     WebElement mahesh;
 
-    public void launchAsosPage() {
-        driver.get( "https://https://www.asos.com/" );
-        driver.manage().window().maximize();
-        WebdriverUtilities.waitForElementToBeVisible( email );
-    }
+    @FindBy(id = "chrome-search")
+    WebElement chromeSearch;
 
+    @FindBys(@FindBy(xpath = ("//*[@data-auto-id='productTilePrice']")))
+    List <WebElement> productList;
+
+    @FindBy(xpath = ("//button[@data-auto-id='filterButton']"))
+    WebElement filter;
+
+    @FindBy(xpath = ("//button[@data-testid='search-button-inline']"))
+    WebElement searchiCON;
+
+    @FindBy(xpath = ("//div[@id='product-add'] //a[@class='add-button']"))
+    WebElement addBasket;
+
+    public void launchAsosPage() {
+        driver.get( "https://www.asos.com/" );
+        driver.manage().window().maximize();
+        WebdriverUtilities.waitForElementToBeVisible( chromeSearch );
+    }
 
     public void launchLinkedinPage() {
         driver.get( "https://www.linkedin.com/" );
         driver.manage().window().maximize();
-        WebdriverUtilities.waitForElementToBeVisible( email );
+
+    }
+
+    public void searchProduct() throws InterruptedException {
+        chromeSearch.sendKeys( "jeans" );
+        searchiCON.click();
+        Thread.sleep( 10 );
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript( "window.scrollBy(0,700)", "" );
+        System.out.println( "Size is:" + productList.size() );
+        Random addtobasket = new Random();
+        int randomvalue = addtobasket.nextInt( productList.size() );
+        System.out.println( "random no is: " + randomvalue );
+        productList.get( randomvalue ).click();
+        Thread.sleep( 1000 );
+        addBasket.click();
     }
 
     public void enterDetails(String Email, String Pwd) {
