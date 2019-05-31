@@ -7,7 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.MalformedURLException;
 
-public class DriverFactory
+public class
+DriverFactory
 {
     public static WebDriver driver;
 
@@ -24,4 +25,7 @@ public class DriverFactory
         driver.close();
     }
 
-}
+    }
+
+
+
