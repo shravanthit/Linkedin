@@ -29,7 +29,8 @@ To run specific feature if you have multiple feature files ,and you want to run 
  CucumberOptions(
         features = {"src/test/resources"},
         tags = {},//runs all the features
-        format = {
+        format = {}
+        )
         
        
 
